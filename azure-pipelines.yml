@@ -1,4 +1,5 @@
 # Node.js
+
 # Build a general Node.js project with npm.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
@@ -27,12 +28,12 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
-- task: AzureWebApp@1
+- task: AzureRmWebAppDeployment@4
   inputs:
-    azureSubscription: '免费试用 (ce91d78f-e476-43a2-a6f9-ff118216c03c)'
+    ConnectionType: 'AzureRM'
     appType: 'webAppLinux'
-    appName: 'hjsWebApp'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    WebAppName: 'hjsWebApp'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 - script: |
     npm i -g npm@16.13.0
     npm install
