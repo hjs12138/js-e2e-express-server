@@ -20,6 +20,13 @@ steps:
     appType: 'webAppLinux'
     appName: 'hjsWebApp'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
 - script: |
     npm i -g npm@16.13.0
     npm install
