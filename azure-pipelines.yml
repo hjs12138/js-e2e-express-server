@@ -31,6 +31,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
+    azureSubscription: '免费试用 (ce91d78f-e476-43a2-a6f9-ff118216c03c)'
     appType: 'webAppLinux'
     WebAppName: 'hjsWebApp'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
