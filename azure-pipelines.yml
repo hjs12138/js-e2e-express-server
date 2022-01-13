@@ -14,7 +14,12 @@ steps:
   inputs:
     versionSpec: '16.13.0' # replace this value with the version that you need for your project
   displayName: 'Install Node.js'
-
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: '免费试用 (ce91d78f-e476-43a2-a6f9-ff118216c03c)'
+    appType: 'webAppLinux'
+    appName: 'hjsWebApp'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
 - script: |
     npm i -g npm@16.13.0
     npm install
