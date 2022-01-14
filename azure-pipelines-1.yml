@@ -29,7 +29,12 @@ steps:
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
     includeRootFolder: false     
-
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: '免费试用 (ce91d78f-e476-43a2-a6f9-ff118216c03c)'
+    appType: 'webAppLinux'
+    appName: 'hjsWebApp'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
 - script: |
     npm install
     npm run build
